@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useLocale, useTranslations } from "next-intl";
 import { Languages, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -16,6 +17,7 @@ export function SiteHeader() {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [open, setOpen] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   function changeLocale() {
     const href = `${pathname}${window.location.search}${window.location.hash}`;
@@ -25,7 +27,7 @@ export function SiteHeader() {
   }
 
   return (
-    <header className="relative z-10 mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-6 py-3 md:px-10 md:py-4">
+    <header data-motion="nav" data-entrance className="relative z-10 mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-6 py-3 md:px-10 md:py-4">
       <a
         href="#home"
         aria-label={t("home")}
@@ -78,8 +80,13 @@ export function SiteHeader() {
           {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
         </Button>
       </div>
+      <AnimatePresence>
       {open && (
-        <nav
+        <motion.nav
+          initial={reduceMotion ? false : { opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={reduceMotion ? { opacity: 1 } : { opacity: 0, y: -6 }}
+          transition={{ duration: reduceMotion ? 0 : 0.18 }}
           id="mobile-navigation"
           aria-label={t("navigation")}
           className="absolute inset-x-6 top-full flex flex-col gap-1 rounded-2xl border border-border bg-surface p-4 shadow-xl md:hidden"
@@ -95,8 +102,9 @@ export function SiteHeader() {
           <a href="#work" onClick={() => setOpen(false)} className="rounded-lg px-4 py-3 text-muted hover:text-accent focus-visible:outline-2 focus-visible:outline-accent">{t("work")}</a>
           <a href="#about" onClick={() => setOpen(false)} className="rounded-lg px-4 py-3 text-muted hover:text-accent focus-visible:outline-2 focus-visible:outline-accent">{t("about")}</a>
           <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="inline-flex min-h-12 items-center justify-center rounded-xl bg-primary px-6 font-bold text-primary-foreground hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">{t("contact")}</a>
-        </nav>
+        </motion.nav>
       )}
+      </AnimatePresence>
     </header>
   );
 }

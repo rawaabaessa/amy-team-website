@@ -19,7 +19,7 @@ export async function Contact() {
       className="mt-12 w-full scroll-mt-8 bg-surface py-16 selection:bg-accent selection:text-background sm:mt-20 sm:py-20"
     >
       <div className="mx-auto grid w-full max-w-5xl items-center gap-10 px-6 sm:px-10 md:grid-cols-2 md:gap-12">
-        <div>
+        <div data-motion="reveal">
           <h2
             id="contact-title"
             className="font-display text-5xl leading-[1.25] font-bold text-balance sm:text-6xl"

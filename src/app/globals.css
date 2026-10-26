@@ -49,98 +49,81 @@
   padding-bottom: 5rem;
 }
 
+/* Motion enhances visible server markup; no hidden baseline or scroll timelines. */
 @media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    transition: background-color 200ms ease, color 200ms ease;
-  }
-
+  html { scroll-behavior: smooth; }
+  body { transition: background-color 200ms ease, color 200ms ease; }
   .site-motion :where(a, button, summary) {
     transition: color 180ms ease, background-color 180ms ease,
-      border-color 180ms ease, translate 180ms cubic-bezier(0.16, 1, 0.3, 1);
+      border-color 180ms ease, translate 220ms cubic-bezier(0.22, 1, 0.36, 1);
   }
-
-  .site-motion :where(a, button):active {
-    translate: 0 1px;
-  }
-
-  .site-motion #hero-title > span {
-    animation: hero-arrive 650ms cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-
-  .site-motion #hero-title > span:nth-child(2) { animation-delay: 80ms; }
-  .site-motion #hero-title > span:nth-child(3) { animation-delay: 160ms; }
-
-  .site-motion #mobile-navigation {
-    transform-origin: top center;
-    animation: menu-open 180ms cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .site-motion details[open] > p {
-    animation: answer-open 220ms ease-out;
-  }
-
+  .site-motion :where(a, button):active { translate: 0 1px; }
   .site-motion :where(#services article, #work article) {
-    transition: translate 250ms cubic-bezier(0.16, 1, 0.3, 1), border-color 200ms ease;
+    transition: translate 250ms cubic-bezier(0.22, 1, 0.36, 1), border-color 200ms ease;
   }
+  .service-illustration, #work article img {
+    transition: scale 400ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  #work article a svg, .contact-composer a svg {
+    transition: translate 250ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .contact-composer label > span {
+    transition: color 200ms ease, background-color 200ms ease, border-color 200ms ease;
+  }
+  .contact-composer textarea {
+    transition: border-color 200ms ease, outline-color 200ms ease;
+  }
+  .contact-composer textarea:focus { border-color: var(--accent); }
+  .site-motion > header nav a:not([aria-current]) {
+    position: relative;
+  }
+  .site-motion > header nav a:not([aria-current])::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    height: 1px;
+    background: currentColor;
+    scale: 0 1;
+    transform-origin: right;
+    transition: scale 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  [dir="ltr"] .site-motion > header nav a::after { transform-origin: left; }
+  .site-motion > header nav a:is(:hover, :focus-visible)::after { scale: 1 1; }
 
+  /* Native details retains keyboard support, exclusivity and expanded semantics.
+     Older engines retain the instant native interaction. */
+  @supports (interpolate-size: allow-keywords) {
+    #faq details { interpolate-size: allow-keywords; }
+    #faq details::details-content {
+      block-size: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: block-size 300ms cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 250ms ease, content-visibility 300ms allow-discrete;
+    }
+    #faq details[open]::details-content { block-size: auto; opacity: 1; }
+  }
   .floating-whatsapp {
-    animation: contact-arrive 450ms cubic-bezier(0.16, 1, 0.3, 1);
     transition: background-color 180ms ease, translate 180ms ease;
   }
-
   @media (hover: hover) and (pointer: fine) {
-    .site-motion :where(#services article, #work article):hover,
-    .site-motion #work article:focus-within {
-      translate: 0 -4px;
-      border-color: var(--accent);
-    }
-
-    .floating-whatsapp:hover { translate: 0 -3px; }
+    #services article:hover { translate: 0 -5px; border-color: var(--accent); }
+    #services article:hover .service-illustration { scale: 1.05; }
+    #work article:is(:hover, :focus-within) { border-color: var(--accent); }
+    #work article:is(:hover, :focus-within) img { scale: 1.035; }
+    #work article a:is(:hover, :focus-visible) svg { translate: -4px 0; }
+    [dir="ltr"] #work article a:is(:hover, :focus-visible) svg { translate: 4px 0; }
+    .contact-composer a:hover, .floating-whatsapp:hover { translate: 0 -3px; }
+    .contact-composer a:hover svg { translate: -3px -3px; }
+    [dir="ltr"] .contact-composer a:hover svg { translate: 3px -3px; }
   }
-
-  /* Progressive enhancement: unsupported browsers keep the complete static layout. */
-  @supports (animation-timeline: view()) {
-    .site-motion main > section:not(:first-child) :where(h2, figure),
-    .site-motion > footer > div {
-      animation: section-arrive 1s linear both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 80%;
-    }
-  }
-}
-
-@keyframes hero-arrive {
-  from { opacity: 0.5; translate: 0 14px; }
-  to { opacity: 1; translate: 0 0; }
-}
-
-@keyframes section-arrive {
-  from { opacity: 0.75; translate: 0 16px; }
-  to { opacity: 1; translate: 0 0; }
-}
-
-@keyframes menu-open {
-  from { opacity: 0.6; transform: scaleY(0.97); }
-  to { opacity: 1; transform: scaleY(1); }
-}
-
-@keyframes answer-open {
-  from { opacity: 0.5; translate: 0 -4px; }
-  to { opacity: 1; translate: 0 0; }
-}
-
-@keyframes contact-arrive {
-  from { opacity: 0.6; scale: 0.9; }
-  to { opacity: 1; scale: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .site-motion *, .site-motion *::before, .site-motion *::after {
+  .site-motion *, .site-motion *::before, .site-motion *::after,
+  .site-motion details::details-content, .floating-whatsapp {
     animation: none !important;
     transition-duration: 0s !important;
   }

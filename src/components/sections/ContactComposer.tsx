@@ -23,7 +23,7 @@ export function ContactComposer({ copy }: { copy: ContactComposerCopy }) {
   const message = `${copy.messages[projectType]}${idea.trim() ? `\n\n${idea.trim()}` : ""}`;
 
   return (
-    <div className="min-w-0 rounded-2xl bg-background p-5 text-foreground sm:p-8">
+    <div data-motion="reveal" className="contact-composer min-w-0 rounded-2xl bg-background p-5 text-foreground sm:p-8">
       <fieldset>
         <legend className="mb-4 text-lg font-bold">{copy.typeLabel}</legend>
         <div className="flex flex-wrap gap-2">

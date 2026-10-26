@@ -197,7 +197,11 @@ export function ProductScene({ copy }: { copy: HeroLabCopy }) {
   ];
 
   return (
-    <figure className="mx-auto mt-9 w-full max-w-6xl sm:mt-12">
+    <figure
+      data-motion="scene"
+      data-entrance
+      className="mx-auto mt-9 w-full max-w-6xl sm:mt-12"
+    >
       <div
         className="relative aspect-[1100/600] w-full [container-type:inline-size]"
         aria-hidden="true"
@@ -438,7 +442,11 @@ export function ProductScene({ copy }: { copy: HeroLabCopy }) {
               <div className="mx-auto h-1.5 w-28 rounded-b-xl bg-[#3b3545]" />
             </div>
           </div>
-          <div className="absolute left-1 top-[305px] w-[300px] rotate-[4deg] overflow-hidden rounded-xl border border-[#4d405f] bg-[#19151f] text-[#c8bfd4] shadow-2xl">
+          <div
+            data-motion="terminal"
+            data-entrance
+            className="absolute left-1 top-[305px] w-[300px] rotate-[4deg] overflow-hidden rounded-xl border border-[#4d405f] bg-[#19151f] text-[#c8bfd4] shadow-2xl"
+          >
             <div className="flex items-center gap-2 border-b border-[#342a40] bg-[#211a2a] px-4 py-3 text-[9px]">
               <Code2 className="size-3 text-[#b899e4]" />
               <span className="font-mono">project.tsx</span>
@@ -483,7 +491,11 @@ export function ProductScene({ copy }: { copy: HeroLabCopy }) {
               </span>
             </div>
           </div>
-          <div className="absolute right-[12px] top-[100px] w-[244px] origin-top-right scale-75 rotate-[6deg] rounded-[33px] border border-[#78717f] bg-[#242129] p-[6px] shadow-[12px_20px_40px_#0005]">
+          <div
+            data-motion="phone"
+            data-entrance
+            className="absolute right-[12px] top-[100px] w-[244px] origin-top-right scale-75 rotate-[6deg] rounded-[33px] border border-[#78717f] bg-[#242129] p-[6px] shadow-[12px_20px_40px_#0005]"
+          >
             <div className="overflow-hidden rounded-[27px] bg-[#faf9fc] text-[#302637]">
               <div className="relative flex h-8 items-center justify-between px-4 pt-1 text-[8px] font-bold">
                 <span>9:41</span>
@@ -604,11 +616,6 @@ export function ProductScene({ copy }: { copy: HeroLabCopy }) {
           </div>
         </div>
       </div>
-      <figcaption className="mt-3 flex flex-wrap items-center justify-center gap-3 text-[11px] text-muted">
-        <span>{copy.caption}</span>
-        <span aria-hidden="true">/</span>
-        <span>{t.demo}</span>
-      </figcaption>
     </figure>
   );
 }

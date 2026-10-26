@@ -43,7 +43,7 @@
     }
   },
   "About": {
-    "title": "We are AMY.",
+    "title": "We are AMY Studio",
     "highlight": "We design. We build.",
     "description": "A software team bringing interface design and development together to create websites and apps that are easy to use.",
     "belief": "We start with your idea and the people who will use it, then turn it into clear interfaces and practical software. Our work spans web and mobile apps, desktop software, games, and databases.",
@@ -51,8 +51,7 @@
     "design": "Interface design",
     "development": "Interface development",
     "previewTitle": "Your idea, made clear.",
-    "previewDescription": "Thoughtful details. A simple experience.",
-    "caption": "From interface design to development — an illustration of our process."
+    "previewDescription": "Thoughtful details. A simple experience."
   },
   "Projects": {
     "eyebrow": "From idea to reality",
@@ -61,7 +60,7 @@
     "description": "Digital products designed for real needs and a distinctive presence.",
     "featured": "Website",
     "projectDescription": "An e-commerce platform for phones, accessories, and smart devices, with a modern experience and carefully designed details.",
-    "visit": "Explore project",
+    "visit": "Live Demo",
     "visitLabel": "Visit Karadeniz Toptan — opens in a new tab",
     "previewLink": "Explore Karadeniz Toptan in a new tab",
     "imageAlt": "Actual homepage preview of the Karadeniz Toptan wholesale phone website",

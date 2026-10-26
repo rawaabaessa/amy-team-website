@@ -48,14 +48,14 @@ export function Services() {
   return (
     <section id="services" aria-labelledby="services-title" className="mx-auto w-full max-w-5xl scroll-mt-8 px-6 pt-3 pb-24 sm:px-10">
       <div className="grid gap-6 md:grid-cols-2" dir="ltr">
-        <div className="flex min-h-60 flex-col items-center justify-center px-5 py-8 text-center md:col-start-2 md:row-start-1" dir={locale === "ar" ? "rtl" : "ltr"}>
+        <div data-motion="reveal" className="flex min-h-60 flex-col items-center justify-center px-5 py-8 text-center md:col-start-2 md:row-start-1" dir={locale === "ar" ? "rtl" : "ltr"}>
           <h2 id="services-title" className="max-w-80 font-display text-3xl leading-snug font-bold sm:text-4xl">{t("title")}</h2>
           <p className="mt-5 max-w-80 text-sm leading-relaxed text-muted">{t("description")}</p>
         </div>
         {kinds.map((kind, index) => (
-          <article key={kind} className="relative flex min-h-64 flex-col items-center justify-end rounded-2xl border border-border bg-surface px-6 pt-12 pb-6 text-center sm:min-h-72">
+          <article data-motion="service" key={kind} className="relative flex min-h-64 flex-col items-center justify-end rounded-2xl border border-border bg-surface px-6 pt-12 pb-6 text-center sm:min-h-72">
             <span aria-hidden="true" className="absolute top-4 left-5 font-sans text-4xl leading-none font-bold tabular-nums text-accent">{String(index + 1).padStart(2, "0")}</span>
-            <ServiceIllustration kind={kind} />
+            <div className="service-illustration flex w-full justify-center"><ServiceIllustration kind={kind} /></div>
             <div dir={locale === "ar" ? "rtl" : "ltr"}>
               <h3 className="mt-4 text-lg font-bold">{t(`${kind}.title`)}</h3>
               <p className="mx-auto mt-2 max-w-72 text-sm leading-relaxed text-muted">{t(`${kind}.description`)}</p>

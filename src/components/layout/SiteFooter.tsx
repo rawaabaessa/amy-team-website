@@ -8,7 +8,7 @@ export function SiteFooter() {
 
   return (
     <footer className="bg-background text-foreground">
-      <div className="mx-auto w-full max-w-5xl px-6 pt-12 pb-7 sm:px-10 sm:pt-16">
+      <div data-motion="footer" className="mx-auto w-full max-w-5xl px-6 pt-12 pb-7 sm:px-10 sm:pt-16">
         <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between md:gap-12">
           <div className="max-w-sm">
             <a
