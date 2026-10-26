@@ -1,6 +1,129 @@
 {
-  "HomePage": {
-    "title": "مرحبا بكم في موقع فريق آمي",
-    "description": "هذا هو الموقع الرسمي لفريق آمي. نحن نعمل على مشاريع مبتكرة ونهدف إلى تقديم أفضل الحلول."
+  "Header": {
+    "home": "Home",
+    "services": "Services",
+    "work": "Our work",
+    "about": "About us",
+    "contact": "Get in touch",
+    "theme": "Toggle light and dark mode",
+    "navigation": "Main navigation",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "Hero": {
+    "intro": "We turn your idea into",
+    "highlight": "a digital product",
+    "ending": "worth seeing",
+    "description": "From the first idea to launch, we build modern websites, apps, and software that bring thoughtful design and precise performance together.",
+    "start": "Start your project",
+    "work": "Explore our work"
+  },
+  "Services": {
+    "title": "What can AMY Studio build for you?",
+    "description": "Technology that starts with your idea. Connected expertise to launch a complete, scalable product designed for your audience.",
+    "web": {
+      "title": "Websites & web applications",
+      "description": "Modern interfaces, seamless experiences, and software built to grow."
+    },
+    "database": {
+      "title": "Databases",
+      "description": "Organized, fast, reliable data structures that support your project for the long term."
+    },
+    "mobile": {
+      "title": "Mobile applications",
+      "description": "Cross-platform apps that give users a clear, consistent experience on every device."
+    },
+    "games": {
+      "title": "Game development",
+      "description": "Interactive experiences that bring technology, imagination, and attention to detail together."
+    },
+    "desktop": {
+      "title": "Desktop software",
+      "description": "Powerful tools with practical interfaces and reliable performance across platforms."
+    }
+  },
+  "About": {
+    "title": "We are AMY.",
+    "highlight": "We design. We build.",
+    "description": "A software team bringing interface design and development together to create websites and apps that are easy to use.",
+    "belief": "We start with your idea and the people who will use it, then turn it into clear interfaces and practical software. Our work spans web and mobile apps, desktop software, games, and databases.",
+    "work": "Get to know us through our work",
+    "design": "Interface design",
+    "development": "Interface development",
+    "previewTitle": "Your idea, made clear.",
+    "previewDescription": "Thoughtful details. A simple experience.",
+    "caption": "From interface design to development — an illustration of our process."
+  },
+  "Projects": {
+    "eyebrow": "From idea to reality",
+    "title": "Projects we’re proud to deliver",
+    "highlight": "Made with purpose.",
+    "description": "Digital products designed for real needs and a distinctive presence.",
+    "featured": "Website",
+    "projectDescription": "An e-commerce platform for phones, accessories, and smart devices, with a modern experience and carefully designed details.",
+    "visit": "Explore project",
+    "visitLabel": "Visit Karadeniz Toptan — opens in a new tab",
+    "previewLink": "Explore Karadeniz Toptan in a new tab",
+    "imageAlt": "Actual homepage preview of the Karadeniz Toptan wholesale phone website",
+    "categoryLabel": "Project type",
+    "category": "E-commerce platform",
+    "audienceLabel": "Audience",
+    "audience": "Phone & accessory retailers",
+    "marketLabel": "Market",
+    "market": "Türkiye · B2B",
+    "caption": "Preview captured from the live website. Project opens in a new tab."
+  },
+  "Faq": {
+    "title": "Before we begin",
+    "description": "A few answers about getting started and working together. Have something else in mind? Let’s talk.",
+    "ask": "Ask us about your project",
+    "start": {
+      "question": "How do I start a project with you?",
+      "answer": "Send us your idea on WhatsApp, even if it is just a couple of lines. We will discuss what you need and work out the next step together."
+    },
+    "platforms": {
+      "question": "Do you build websites and apps?",
+      "answer": "Yes. We develop websites, web and mobile apps, desktop software, games, and database solutions. The right approach depends on what your project needs."
+    },
+    "existing": {
+      "question": "Can you improve an existing project?",
+      "answer": "We can discuss improvements or new features. First, we need to review the current project and its technology to understand what is possible."
+    },
+    "prepare": {
+      "question": "What should I prepare before we talk?",
+      "answer": "A short description, who the project is for, and what it should do. Examples you like or a target date are helpful too. You do not need every detail figured out."
+    },
+    "cost": {
+      "question": "How much will it cost, and how long will it take?",
+      "answer": "That depends on the scope and features. Once we understand the details, we agree on the work, cost, and timeline before development begins."
+    }
+  },
+  "Contact": {
+    "title": "What’s on your mind?",
+    "description": "A website, an app, or an idea without a name yet? We’d love to hear it.",
+    "reassurance": "You don’t need a complete plan. Tell us what you need, and we’ll figure out the next step together.",
+    "closing": "Your first line. Our next beginning.",
+    "typeLabel": "I’m thinking about…",
+    "types": {
+      "website": "A website",
+      "app": "An app",
+      "game": "A game",
+      "other": "Something else"
+    },
+    "ideaLabel": "Tell us a little",
+    "optional": "(optional)",
+    "placeholder": "I have an idea for… It would help people…",
+    "send": "Let’s talk on WhatsApp",
+    "greeting": "Hi AMY! I have an idea I’d love to discuss.",
+    "messageType": "Project type: {type}"
+  },
+  "Footer": {
+    "navigation": "Footer navigation",
+    "faq": "FAQ",
+    "home": "Back to the top",
+    "copyright": "© {year} AMY Studio. All rights reserved."
+  },
+  "WhatsApp": {
+    "label": "Contact us on WhatsApp — opens in a new tab"
   }
 }

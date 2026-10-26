@@ -1,26 +1,147 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #faf8ff;
+  --foreground: #21172f;
+  --muted: #6d617e;
+  --primary: #8040e8;
+  --primary-hover: #7131d7;
+  --primary-foreground: #ffffff;
+  --surface: #f0eaf8;
+  --border: #d9c9ec;
+  --accent: #7131d7;
+  --glow: #b892ed;
+  --toggle: #c9b6df;
 }
-
+.dark {
+  --background: #0e0b14;
+  --foreground: #f7f4fb;
+  --muted: #b5aabd;
+  --primary: #893de9;
+  --primary-hover: #9b55f1;
+  --primary-foreground: #ffffff;
+  --surface: #1c1526;
+  --border: #3e2953;
+  --accent: #a172ff;
+  --glow: #512182;
+  --toggle: #bba6d1;
+}
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-glow: var(--glow);
+  --color-toggle: var(--toggle);
+  --font-sans: var(--font-thmanyah-sans);
+  --font-display: var(--font-thmanyah-display);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Reserve room for the fixed contact action at the end of the document. */
+.site-motion > footer {
+  padding-bottom: 5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    transition: background-color 200ms ease, color 200ms ease;
+  }
+
+  .site-motion :where(a, button, summary) {
+    transition: color 180ms ease, background-color 180ms ease,
+      border-color 180ms ease, translate 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .site-motion :where(a, button):active {
+    translate: 0 1px;
+  }
+
+  .site-motion #hero-title > span {
+    animation: hero-arrive 650ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .site-motion #hero-title > span:nth-child(2) { animation-delay: 80ms; }
+  .site-motion #hero-title > span:nth-child(3) { animation-delay: 160ms; }
+
+  .site-motion #mobile-navigation {
+    transform-origin: top center;
+    animation: menu-open 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .site-motion details[open] > p {
+    animation: answer-open 220ms ease-out;
+  }
+
+  .site-motion :where(#services article, #work article) {
+    transition: translate 250ms cubic-bezier(0.16, 1, 0.3, 1), border-color 200ms ease;
+  }
+
+  .floating-whatsapp {
+    animation: contact-arrive 450ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition: background-color 180ms ease, translate 180ms ease;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .site-motion :where(#services article, #work article):hover,
+    .site-motion #work article:focus-within {
+      translate: 0 -4px;
+      border-color: var(--accent);
+    }
+
+    .floating-whatsapp:hover { translate: 0 -3px; }
+  }
+
+  /* Progressive enhancement: unsupported browsers keep the complete static layout. */
+  @supports (animation-timeline: view()) {
+    .site-motion main > section:not(:first-child) :where(h2, figure),
+    .site-motion > footer > div {
+      animation: section-arrive 1s linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 80%;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes hero-arrive {
+  from { opacity: 0.5; translate: 0 14px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+@keyframes section-arrive {
+  from { opacity: 0.75; translate: 0 16px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+@keyframes menu-open {
+  from { opacity: 0.6; transform: scaleY(0.97); }
+  to { opacity: 1; transform: scaleY(1); }
+}
+
+@keyframes answer-open {
+  from { opacity: 0.5; translate: 0 -4px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+@keyframes contact-arrive {
+  from { opacity: 0.6; scale: 0.9; }
+  to { opacity: 1; scale: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .site-motion *, .site-motion *::before, .site-motion *::after {
+    animation: none !important;
+    transition-duration: 0s !important;
+  }
 }
